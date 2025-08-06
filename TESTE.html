@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Exemplo Logo na Impressão</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* Logo visível na tela */
+    .logo-tela {
+      display: block;
+      width: 200px;
+      height: auto;
+      margin: 0 auto 20px auto;
+    }
+
+    /* Container da logo para impressão inicialmente escondido */
+    .logo-impressao-container {
+      display: none;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Mostrar a logo somente na impressão */
+    @media print {
+      body {
+        background: white !important;
+        color: black !important;
+      }
+
+      /* Esconde tudo exceto o que está no container da impressão */
+      /* Se quiser imprimir só a tabela, adapte aqui */
+      .logo-impressao-container {
+        display: block !important;
+      }
+
+      .logo-impressao {
+        width: 200px;
+        height: auto;
+        margin: 0 auto 20px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Minha Aplicação</h1>
+
+  <!-- Logo visível na tela -->
+  <img src="./IMG/logo_kurma.jpg" alt="Logo na tela" class="logo-tela" />
+
+  <!-- Conteúdo da página -->
+  <p>Conteúdo da aplicação aqui...</p>
+
+  <!-- Logo para impressão (pode ser a mesma imagem ou outra) -->
+  <div class="logo-impressao-container">
+    <img src="./IMG/logo_kurma.jpg" alt="Logo na impressão" class="logo-impressao" />
+  </div>
+
+  <button onclick="window.print()">Imprimir</button>
+
+</body>
+</html>
